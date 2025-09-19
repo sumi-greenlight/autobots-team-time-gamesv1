@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNC OR SINK - Interactive Decision Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="neon-title">SYNC OR SINK</h1>
+            <div class="subtitle">⚙️ Clockwork Decision Apparatus 🎩</div>
+            <div class="meta-text" style="font-size: 0.8rem; color: #8b6914; margin-top: 10px; font-family: 'Crimson Text', serif; font-style: italic;">
+                In the grand machinery of fate... do you turn the gears?
+            </div>
+            
+            <!-- Enhanced Objective Display -->
+            <div class="main-objective-display" id="objective-display" style="margin-top: 25px; padding: 25px; background: linear-gradient(135deg, rgba(61, 40, 23, 0.8) 0%, rgba(74, 48, 24, 0.8) 50%, rgba(61, 40, 23, 0.8) 100%); border: 3px solid #cd7f32; border-radius: 15px; max-width: 700px; margin-left: auto; margin-right: auto; box-shadow: inset 2px 2px 6px rgba(255, 215, 0, 0.2), inset -2px -2px 6px rgba(139, 69, 19, 0.4), 0 8px 16px rgba(0, 0, 0, 0.5);">
+                
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h2 id="objective-title" style="color: #cd7f32; font-size: 1.4rem; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 2px; font-family: 'Cinzel', serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(205,127,50,0.6);">⚙️ THE GREAT CONVERGENCE PROTOCOL ⚙️</h2>
+                    <div style="color: #b8860b; font-size: 1rem; font-family: 'Crimson Text', serif; font-style: italic; margin-bottom: 15px;">Aetheric Resonance Engine - City Defense System</div>
+                    <div id="objective-description" style="color: #d4af37; font-size: 0.9rem; font-family: 'Crimson Text', serif; line-height: 1.4; max-width: 500px; margin: 0 auto;">
+                        Calibrate 8 critical subsystems with your Mechanical Partner to prevent a catastrophic steam explosion that could destroy half the Victorian metropolis. Each successful coordination stabilizes the Engine. Failure means disaster.
+                    </div>
+                </div>
+                
+                <div class="progress-section" style="margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="color: #8b6914; font-family: 'Cinzel', serif; font-size: 0.9rem; text-transform: uppercase;">Engine Calibration:</span>
+                        <span id="progress-text" style="color: #cd7f32; font-family: 'Cinzel', serif; font-weight: bold;">0/8 Subsystems</span>
+                    </div>
+                    <div class="progress-bar-container" style="background: rgba(139, 69, 19, 0.4); border: 2px solid #8b6914; border-radius: 12px; height: 24px; position: relative; overflow: hidden;">
+                        <div id="progress-bar" class="progress-bar" style="height: 100%; background: linear-gradient(90deg, #cd7f32 0%, #b8860b 50%, #cd7f32 100%); width: 0%; transition: width 0.8s ease-in-out; position: relative;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.15) 50%, transparent 75%); animation: shimmer 2s infinite;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="label">HARMONY LEVEL:</span>
+                    <span id="happiness-score" class="score">😐 50%</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">OPERATION:</span>
+                    <span id="round-counter" class="score">1</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">STORY PATH:</span>
+                    <span id="story-path" class="score" title="Your narrative trajectory">⚙️ NEUTRAL</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">ENGINE STATUS:</span>
+                    <span id="objective-progress" class="score" title="Aetheric Resonance Engine calibration">⚡ CHARGING</span>
+                </div>
+                <div class="score-item">
+                    <button id="show-tree-btn" class="tree-button" title="View your decision chronometer">
+                        ⚙️ DECISION CHRONOMETER
+                    </button>
+                </div>
+                <div class="score-item">
+                    <button id="show-instructions-btn" class="tree-button" title="Read the operational manual">
+                        📜 INSTRUCTIONS
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div id="personality-screen" class="screen active">
+                <div class="personality-card">
+                    <div class="personality-title">
+                        <h2>CALIBRATE YOUR MECHANICAL PARTNER</h2>
+                    </div>
+                    <div class="personality-options">
+                        <div class="personality-option" data-personality="trustworthy">
+                            <div class="personality-name">🎩 SIR REGINALD COGSWORTH III</div>
+                            <div class="personality-subtitle">The Gentleman Automaton</div>
+                            <div class="personality-description">A refined mechanical companion, precisely calibrated for cooperation. This clockwork partner values honor and coordination, operating with Victorian propriety.</div>
+                            <div class="personality-behavior">Tends to cooperate • Beginner-friendly • 70% synchronization rate</div>
+                        </div>
+                        <div class="personality-option" data-personality="unpredictable">
+                            <div class="personality-name">⚡ PROFESSOR MADELINE STEAMWRIGHT</div>
+                            <div class="personality-subtitle">The Steam-Powered Wildcard</div>
+                            <div class="personality-description">An eccentric contraption with erratic steam pressure! This unpredictable mechanism sometimes runs in harmony, sometimes goes rogue. Expect the unexpected!</div>
+                            <div class="personality-behavior">Chaotic operations • Challenging calibration • 50% synchronization rate</div>
+                        </div>
+                        <div class="personality-option" data-personality="contrarian">
+                            <div class="personality-name">⚙️ CAPTAIN BRASS REBELLIOUS</div>
+                            <div class="personality-subtitle">The Contrarian Cogwright</div>
+                            <div class="personality-description">A rebellious apparatus engineered to challenge convention. This mechanical maverick operates on reverse psychology and delights in alternative solutions.</div>
+                            <div class="personality-behavior">Oppositional mechanics • Expert difficulty • 30% synchronization rate</div>
+                        </div>
+                    </div>
+                    <button id="confirm-personality" class="neon-button" disabled>INITIATE APPARATUS</button>
+                </div>
+            </div>
+
+            <div id="scenario-screen" class="screen">
+                <div class="scenario-card">
+                    <div class="scenario-title">
+                        <h2 id="scenario-title">OPERATIONAL BRIEFING</h2>
+                    </div>
+                    <div class="scenario-content">
+                        <p id="scenario-text">Calibrating clockwork apparatus...</p>
+                    </div>
+                    <div class="partner-info">
+                        <div class="partner-avatar">⚙️</div>
+                        <div class="partner-name" id="partner-name">YOUR MECHANICAL PARTNER</div>
+                        <div class="partner-status" id="partner-status">Calculating probabilities...</div>
+                    </div>
+                </div>
+                <button id="start-decision" class="neon-button">COMMENCE SYNCHRONIZATION</button>
+            </div>
+
+            <div id="decision-screen" class="screen">
+                <div class="decision-container">
+                    <div class="decision-prompt">
+                        <h3>Choose Your Action:</h3>
+                        <p id="decision-context">You and Your Partner must coordinate...</p>
+                    </div>
+                    
+                    <div class="choices">
+                        <button id="choice-a" class="choice-button choice-a">
+                            <div class="choice-icon">A</div>
+                            <div class="choice-text">Choice A</div>
+                        </button>
+                        <button id="choice-b" class="choice-button choice-b">
+                            <div class="choice-icon">B</div>
+                            <div class="choice-text">Choice B</div>
+                        </button>
+                    </div>
+
+                    <div class="timer-container">
+                        <div class="timer-label">DECISION TIME:</div>
+                        <div id="timer" class="timer">10</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result-screen" class="screen">
+                <div class="result-container">
+                    <div class="result-header">
+                        <h2 id="result-title">OPERATIONAL RESULT</h2>
+                    </div>
+                    
+                    <div class="choices-made">
+                        <div class="player-choice">
+                            <div class="choice-label">YOUR CALIBRATION:</div>
+                            <div id="player-choice-display" class="choice-display">A</div>
+                        </div>
+                        <div class="vs">⚙️</div>
+                        <div class="bot-choice">
+                            <div class="choice-label">APPARATUS SETTING:</div>
+                            <div id="bot-choice-display" class="choice-display">B</div>
+                        </div>
+                    </div>
+
+                    <div class="outcome">
+                        <div id="outcome-icon" class="outcome-icon">💥</div>
+                        <div id="outcome-text" class="outcome-text">Synchronization Failed!</div>
+                        <div id="outcome-description" class="outcome-description">
+                            The gears did not align properly...
+                        </div>
+                    </div>
+
+                    <div class="points-earned">
+                        <span class="points-label">EFFICIENCY RATING:</span>
+                        <span id="points-earned" class="points">+0</span>
+                    </div>
+
+                    <button id="next-round" class="neon-button">NEXT OPERATION</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "name": "autobots-team-time-game",
+  "version": "1.0.0",
+  "description": "🎩⚙️ The Great Convergence Protocol: A Steampunk Decision Experience",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1",
+    "dev": "python3 -m http.server 8080",
+    "build": "echo 'No build process needed - static HTML game'",
+    "test": "echo 'No tests configured'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/autobots-team-time-game.git"
+  },
+  "keywords": [
+    "game",
+    "steampunk",
+    "decision-making",
+    "javascript",
+    "html5",
+    "cooperative",
+    "strategy",
+    "ai",
+    "interactive",
+    "browser-game",
+    "victorian",
+    "clockwork",
+    "autobots",
+    "team",
+    "coordination"
+  ],
+  "author": "Steampunk Interactive",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/autobots-team-time-game/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/autobots-team-time-game#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
